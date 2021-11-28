@@ -15,4 +15,6 @@ jobs:
       with:
         python-version: 2.7
     - name: Claim Reward
-      run: python rewards.py "${{ secrets.COOKIE_FORZA }}"
+      run: |
+        python rewards.py "${{ secrets.COOKIE_FORZA }}" > output.txt
+        cat output.txt
