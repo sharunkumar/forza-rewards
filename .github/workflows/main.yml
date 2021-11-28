@@ -18,3 +18,11 @@ jobs:
       run: |
         python rewards.py "${{ secrets.COOKIE_FORZA }}" > output.txt
         cat output.txt
+    - name: Set up Python 3.6
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+    - name: Post to Discord
+      run: |
+        pip3 install requests
+        python3 discord.py '${{ secrets.DISCORD_WEBHOOK }}'
